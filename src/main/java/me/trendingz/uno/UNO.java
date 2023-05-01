@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class UNO {
 
-    private ArrayList<Player> players;
-    private Deck deck;
-    private DiscardPile discardPile;
-    private Player currentPlayer;
+    private ArrayList<UNOPlayer> players;
+    private UNODeck deck;
+    private UNODiscardPile discardPile;
+    private UNOPlayer currentPlayer;
 
-    public UnoGame() {
+    public UNO() {
         this.players = new ArrayList<>();
-        this.deck = new Deck();
-        this.discardPile = new DiscardPile();
+        this.deck = new UNODeck();
+        this.discardPile = new UNODiscardPile();
     }
 
     public void startGame() {
@@ -28,12 +28,12 @@ public class UNO {
         System.out.println("Game over!");
     }
 
-    public void addPlayer(Player player) {
+    public void addPlayer(UNOPlayer player) {
         players.add(player);
     }
 
     private void dealCards() {
-        for (Player player : players) {
+        for (UNOPlayer player : players) {
             for (int i = 0; i < 7; i++) {
                 player.drawCard(deck.drawCard());
             }
@@ -50,7 +50,7 @@ public class UNO {
     }
 
     private boolean gameOver() {
-        for (Player player : players) {
+        for (UNOPlayer player : players) {
             if (player.hasEmptyHand()) {
                 System.out.println(player.getName() + " wins!");
                 return true;
@@ -60,11 +60,11 @@ public class UNO {
     }
 
     public static void main(String[] args) {
-        UnoGame game = new UnoGame();
-        game.addPlayer(new Player("Player 1"));
-        game.addPlayer(new Player("Player 2"));
-        game.addPlayer(new Player("Player 3"));
-        game.addPlayer(new Player("Player 4"));
+        UNO game = new UNO();
+        game.addPlayer(new UNOPlayer("Player 1"));
+        game.addPlayer(new UNOPlayer("Player 2"));
+        game.addPlayer(new UNOPlayer("Player 3"));
+        game.addPlayer(new UNOPlayer("Player 4"));
         game.startGame();
     }
 }

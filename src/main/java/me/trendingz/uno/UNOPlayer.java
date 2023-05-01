@@ -26,7 +26,7 @@ public class UNOPlayer {
     }
 
     public void playTurn(UNODiscardPile discardPile) {
-        System.out.println("Current card: " + discardPile.topCard());
+        System.out.println("Current card: " + discardPile.getLastCard());
         System.out.println("Your hand: " + hand);
         Scanner scanner = new Scanner(System.in);
         boolean validPlay = false;
@@ -34,7 +34,7 @@ public class UNOPlayer {
             System.out.print("Enter card index to play (0-" + (hand.size() - 1) + "): ");
             int index = scanner.nextInt();
             UNOCard card = hand.get(index);
-            if (card.matches(discardPile.topCard())) {
+            if (card.matches(discardPile.getLastCard())) {
                 hand.remove(index);
                 discardPile.addCard(card);
                 validPlay = true;

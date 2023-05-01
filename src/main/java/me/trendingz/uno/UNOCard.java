@@ -18,6 +18,10 @@ public class UNOCard {
         return value;
     }
 
+    public boolean matches(UNOCard card) {
+        return card.getColor().equals(this.color) && card.getValue().equals(this.getValue());
+    }
+
     @Override
     public String toString() {
         return color + " " + value;
