@@ -4,6 +4,8 @@ package me.trendingz.uno;
 public class UNOCard {
     private final String color;
     private final String value;
+    private final String[] specialColor = {"Special"};
+    private final String[] specialValue = {"Draw Two", "Skip", "Reverse"};
 
     public UNOCard(String color, String value) {
         this.color = color;
@@ -19,7 +21,7 @@ public class UNOCard {
     }
 
     public boolean matches(UNOCard card) {
-        return card.getColor().equals(this.color) && card.getValue().equals(this.getValue());
+        return card.getColor().equals(this.color) || card.getValue().equals(this.value);
     }
 
     @Override

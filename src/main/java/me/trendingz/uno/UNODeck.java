@@ -7,15 +7,15 @@ public class UNODeck {
 
     public UNODeck() {
         cards = new ArrayList<UNOCard>();
-        String[] suits = {"Red", "Blue", "Green", "Yellow"};
-        String[] types = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Draw Two", "Skip", "Reverse"};
+        String[] colors = {"Red", "Blue", "Green", "Yellow"};
+        String[] values = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Draw Two", "Skip", "Reverse"};
 
-        for (String suit : suits) {
-            for (int i = 0; i < types.length; i++) {
-                cards.add(new UNOCard(suit, types[i]));
+        for (String color : colors) {
+            for (int i = 0; i < values.length; i++) {
+                cards.add(new UNOCard(color, values[i]));
 
-                if (!types[i].equals("0")) {
-                    cards.add(new UNOCard(suit, types[i]));
+                if (!values[i].equals("0")) {
+                    cards.add(new UNOCard(color, values[i]));
                 }
             }
         }
