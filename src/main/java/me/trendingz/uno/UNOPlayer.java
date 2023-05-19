@@ -53,17 +53,13 @@ public class UNOPlayer {
         UNO uno = UNO.getInstance();
         UNODeck unoDeck = uno.getDeck();
         ArrayList<UNOPlayer> players = uno.getPlayers();
+        UNOPlayer playerAfter = uno.getPlayerAfter();
 
         if (card.getValue().equals("Reverse")) Collections.reverse(players);
         else if (card.getValue().equals("Skip")) uno.nextPlayer();
         else if (card.getValue().equals("Draw Two")) {
             for (int i = 0; i < 2; i++) {
-                this.drawCard(unoDeck.drawCard());
-            }
-        }
-        else if (card.getValue().equals("Draw Four")) {
-            for (int i = 0; i < 4; i++) {
-                this.drawCard(unoDeck.drawCard());
+                playerAfter.drawCard(unoDeck.drawCard());
             }
         }
     }

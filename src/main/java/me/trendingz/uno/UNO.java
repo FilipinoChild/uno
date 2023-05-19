@@ -67,6 +67,19 @@ public class UNO {
         }
     }
 
+    public UNOPlayer getPlayerAfter() {
+        UNOPlayer playerAfter;
+
+        int currentIndex = players.indexOf(currentPlayer);
+        if (currentIndex == players.size() - 1) {
+            playerAfter = players.get(0);
+        } else {
+            playerAfter = players.get(currentIndex + 1);
+        }
+        
+        return playerAfter;
+    }
+
     private boolean gameOver() {
         for (UNOPlayer player : players) {
             if (player.hasEmptyHand()) {
