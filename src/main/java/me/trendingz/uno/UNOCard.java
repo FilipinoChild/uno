@@ -4,8 +4,6 @@ package me.trendingz.uno;
 public class UNOCard {
     private final String color;
     private final String value;
-    private final String[] specialColor = {"Special"};
-    private final String[] specialValue = {"Draw Two", "Skip", "Reverse"};
 
     public UNOCard(String color, String value) {
         this.color = color;

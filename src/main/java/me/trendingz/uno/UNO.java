@@ -4,15 +4,33 @@ import java.util.ArrayList;
 
 public class UNO {
 
+    private static UNO instance;
     private ArrayList<UNOPlayer> players;
     private UNODeck deck;
     private UNODiscardPile discardPile;
     private UNOPlayer currentPlayer;
-
+    
     public UNO() {
+        this.instance = this;
         this.players = new ArrayList<>();
         this.deck = new UNODeck();
         this.discardPile = new UNODiscardPile();
+    }
+
+    public static UNO getInstance() {
+        return instance;
+    }
+
+    public ArrayList<UNOPlayer> getPlayers() {
+        return this.players;
+    }
+
+    public UNODeck getDeck() {
+        return this.deck;
+    }
+
+    public UNODiscardPile getDiscardPile() {
+        return this.discardPile;
     }
 
     public void startGame() {
@@ -40,7 +58,7 @@ public class UNO {
         }
     }
 
-    private void nextPlayer() {
+    public void nextPlayer() {
         int currentIndex = players.indexOf(currentPlayer);
         if (currentIndex == players.size() - 1) {
             currentPlayer = players.get(0);
