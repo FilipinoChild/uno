@@ -11,7 +11,6 @@ public class UNO {
     private UNOPlayer currentPlayer;
     
     public UNO() {
-        this.instance = this;
         this.players = new ArrayList<>();
         this.deck = new UNODeck();
         this.discardPile = new UNODiscardPile();
@@ -34,9 +33,12 @@ public class UNO {
     }
 
     public void startGame() {
+        this.instance = this;
         deck.shuffle();
         dealCards();
+        //Fix Plus Four Color Change Start Cards
         discardPile.addCard(deck.drawCard());
+
         currentPlayer = players.get(0);
         while (!gameOver()) {
             System.out.println(currentPlayer.getName() + "'s turn");
@@ -68,7 +70,7 @@ public class UNO {
     }
 
     public UNOPlayer getPlayerAfter() {
-        UNOPlayer playerAfter;
+        UNOPlayer playerAfter = currentPlayer;
 
         int currentIndex = players.indexOf(currentPlayer);
         if (currentIndex == players.size() - 1) {
@@ -76,7 +78,6 @@ public class UNO {
         } else {
             playerAfter = players.get(currentIndex + 1);
         }
-        
         return playerAfter;
     }
 

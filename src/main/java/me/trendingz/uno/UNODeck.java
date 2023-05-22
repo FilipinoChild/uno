@@ -19,6 +19,10 @@ public class UNODeck {
                 }
             }
         }
+        for (int i = 0; i < 4; i++) {
+            cards.add(new UNOCard("Special", "Color Change"));
+            cards.add(new UNOCard("Special", "Plus Four"));
+        }
     }
 
     public void shuffle() {
